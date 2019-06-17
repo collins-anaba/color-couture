@@ -5,7 +5,9 @@ class Home extends Component {
     constructor(props){
         super(props)
         this.state = {
-
+            open: false,
+            LogIn: false,
+            account: []
         }
     }
 

@@ -4,3 +4,8 @@ body {
   background-size: cover;
   background-image: url(./images/background.jpg);
   }
+
+  img {
+    width: 200px;
+    height: auto;
+  }

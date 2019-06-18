@@ -94,12 +94,12 @@ render () {
                 <h1> Admin Form </h1>
                 <br/>
                 <h2>Add New Product</h2>
-            <form onSubmit={this.handleProductUpload}>
+            <form onSubmit={this.submitProduct}>
                 <br/>
                 <input placeholder='image'
                 type='text'
                 label='description'
-                onChange={this.submitProduct}
+                onChange={this.handleProductUpload}
                 />
                 <br/>
                 <input 

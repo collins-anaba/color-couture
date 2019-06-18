@@ -6,7 +6,7 @@ export default class NavBar extends Component {
  constructor(){
      super();
      this.state = {
-         toggle: toggleMenu,
+         
 
      }
  }

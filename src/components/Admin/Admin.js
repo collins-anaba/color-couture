@@ -33,7 +33,7 @@ class Admin extends Component {
     handleDescription = (e) => {
         this.setState({description:e.target.description})
     };
-    deleteProduct = (e) => {
+    deleteItem = (e) => {
         this.setState({name: e.target.value})
     };
 
@@ -84,6 +84,24 @@ class Admin extends Component {
         console.log(this.state.size)
         console.log(this.state.style)
         console.log(this.state.description)
+    }
+    deleteProduct = (event) => {
+        event.preventDefault()
+        axios.delete(`/api/products/${this.state.name}`,{
+            price: this.state.price,
+            size:this.state.size,
+            style: this.state.style,
+            description: this.state.description,
+        }).then(response => {
+            console.log(response)
+        }).catch(error => {
+            console.log(error)
+        });
+        console.log(this.state.name)
+        console.log(this.state.price)
+        console.log(this.state.size)
+        console.log(this.state.style)
+        console.log(this.state.description)  
     }
 
     
@@ -187,6 +205,7 @@ render () {
                 placeholder='name'
                 type='text'
                 label='name'
+                onChange={this.deleteItem}
                 />
                 <br/>
                 <button type="submit" >Delete Product</button>

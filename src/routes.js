@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 import Home from "./components/Home";
 import Login from './components/Login';
 import Help from './components/Help';
-import NewCustomers from './components/NewCustomers';
 import Cart from './components/Cart';
 import CheckOut from './components/CheckOut';
 import About from './components/About';
@@ -19,7 +18,6 @@ export default (
         <Route path="/" exact component={Home}/>
         <Route path='/Login'  exact component={Login}/>
         <Route path= '/Help' exact component={Help}/>
-        <Route path= '/NewCustomers' exact component={NewCustomers}/>
         <Route path= '/Cart' exact component={Cart}/>
         <Route path= '/Checkout' exact component={CheckOut}/>
         <Route path= '/About' exact component={About}/>

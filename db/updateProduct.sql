@@ -1,0 +1,1 @@
+UPDATE products SET price = $3 WHERE name = $1

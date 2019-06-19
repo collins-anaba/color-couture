@@ -17,6 +17,7 @@
     "react-scripts": "3.0.1",
     "react-stripe-checkout": "^2.6.3",
     "redux": "^4.0.1",
+    "redux-promise-middleware": "^6.1.1",
     "switch": "0.0.0"
   },
   "scripts": {

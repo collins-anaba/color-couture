@@ -7,12 +7,14 @@ const initialState = {
     user: [],
 }
 
+//constants
 const GET_BOYSSHIRT = 'GET_BOYSSHIRT';
 const GET_GIRLSSHIRT = 'GET_GIRLSSHIRT';
 const LOGIN = 'LOGIN';
 const LOGOUT = 'LOGOUT';
 const GET_USER = 'GET_USER';
 
+//action creators
 export default function reducer (state = initialState, action){
     console.log(action);
     switch(action.type){
@@ -52,8 +54,7 @@ export function logIn (){
     return {
         type: LOGIN,
         payload: axios.post('/api/auth/login', {
-            username: username,
-            email: email,  
+            
         })
     }
 }

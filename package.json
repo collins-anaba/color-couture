@@ -7,9 +7,17 @@
   "dependencies": {
     "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",
+    "bluebird": "^3.5.5",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.0.0",
+    "express": "^4.17.1",
     "express-session": "^1.16.2",
+    "file-type": "^10.11.0",
     "massive": "^5.11.0",
+    "multiparty": "^4.2.1",
+    "node": "^12.4.0",
+    "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-hash-router": "^0.2.0",
@@ -19,6 +27,8 @@
     "react-stripe-checkout": "^2.6.3",
     "redux": "^4.0.1",
     "redux-promise-middleware": "^6.1.1",
+    "sass": "^1.21.0",
+    "stripe": "^7.2.0",
     "switch": "0.0.0"
   },
   "scripts": {

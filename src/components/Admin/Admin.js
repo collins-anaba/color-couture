@@ -39,7 +39,7 @@ class Admin extends Component {
 
     handleProductUpload = (event) => {
         this.setState({ file: event.target.products }, () => {
-          console.log(this.state.product)
+          console.log(this.state.file)
         });
       }
     

@@ -7,7 +7,6 @@ import Cart from './components/Cart';
 import CheckOut from './components/CheckOut';
 import About from './components/About';
 import Admin from './components/Admin/Admin';
-import Payment from './components/Payment';
 import Girls from './components/Girls';
 import Boys from './components/Boys';
 
@@ -22,7 +21,6 @@ export default (
         <Route path= '/Checkout' exact component={CheckOut}/>
         <Route path= '/About' exact component={About}/>
         <Route path= '/Admin' exact component={Admin}/>
-        <Route path= '/Payment' exact component={Payment}/>
         <Route path= 'Girls' exact component={Girls}/>
         <Route path= 'Boys' exact component={Boys}/>
     </Switch>

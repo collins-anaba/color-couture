@@ -20,7 +20,7 @@ class Home extends Component {
             }
         })
     }
-    handleClick(){
+    handleClick(id){
         if(this.state.session){
             axios.post(`/api/cart/${id}`).then(response =>{
             })
@@ -31,14 +31,14 @@ class Home extends Component {
 
     render(){
         let itemList = this.state.products.map(product => {
-            return 
+            return (
             <div key={product.id} className='Card'>
             <img/>
             <h3>Product Name</h3>
             <h4>${product.price}</h4>
             <button className='addToCart' onClick={() => this.handleClick(product.id)}>Add To Cart</button>
             </div>
-        })
+        )})
         return (
             <div>
                 <div className= 'Item_List'>

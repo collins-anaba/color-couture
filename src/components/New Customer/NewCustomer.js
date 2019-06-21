@@ -56,8 +56,15 @@ export default class NewCustomer extends Component {
                 <input onChange={this.handlePassword} type='password' placeholder='Password'/>
                 <br/>
                 <input onChange={this.handleEmail} type='email' placeholder='Email'/>
-                <button onClick={this.}>Sign Up</button>
+                <button onClick={this.handleClick} onKeyPress={this.handleEnter}>Sign Up</button>
+                {this.state.nameTaken && <h3>This name is already taken, please choose another.</h3>}
             </div>
         )
     }
 }
+const mapStateProps = state => {
+    return {
+        user: state.user
+    }
+}
+export default connect(mapStateProps, {updateUser})(Register)

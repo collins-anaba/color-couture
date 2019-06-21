@@ -1,11 +1,11 @@
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import axios from 'axios';
-import logo from "../images/logo.png";
+import logo from "../../images/logo.png";
 
 
 const stripeBtn = (props) => {
-    const publishableKey = "pk_test_CFBk0wKAg5NfvQdakXsQYcEm00MPFstx6q";
+    const publishableKey = 'pk_test_JvvcaG3QvWkj6G70k6h6PNy400GIGBvGk1';
 
     const onToken = token => {
         const body = {

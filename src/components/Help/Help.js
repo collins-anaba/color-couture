@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import sizeGuide from '../images/sizeGuide.jpg';
+import sizeGuide from '../../images/sizeGuide.jpg';
 import { Link } from 'react-router-dom';
 
 export default class Help extends Component {
@@ -12,7 +12,7 @@ export default class Help extends Component {
             </header>
             <h2>Product Information</h2>
             <br/>
-            <p>•How Do I use a Color My Doodle shirt?
+            <p>•How do I use a Color My Doodle shirt?
             Use a washable crayon to color inside the picture. 
             </p>
             <p>•How Do I use a Color My Doodle shirt?

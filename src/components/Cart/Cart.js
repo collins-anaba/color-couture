@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import axios from 'axios';
-import StripeBtn from '../CheckOut';
+import StripeBtn from '../CheckoutStripe/CheckOutStripe';
 
 
 export default class Cart extends Component {

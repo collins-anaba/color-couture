@@ -29,7 +29,7 @@ export default class Help extends Component {
             We recommend that you use gentle cycle with warm water and with like colors.
             </p>
             <p>
-            •What is the proper way to dry a Color My Doodle shirt?
+            •What is the proper way to dry a Color Couture shirt?
             We recommend that you dry immediately in tumble dry low with like colors.
             </p>
             <p>

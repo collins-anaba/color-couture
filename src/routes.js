@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from "./components/Home";
-import Login from './components/Login';
-import Help from './components/Help';
-import Cart from './components/Cart';
+import Login from './components/Login/Login';
+import Help from './components/Help/Help';
+import Cart from './components/Cart/Cart';
 import CheckOut from './components/CheckOut';
-import About from './components/About';
+import About from './components/About/About';
 import Admin from './components/Admin/Admin';
 import Girls from './components/Girls';
 import Boys from './components/Boys';

@@ -9,6 +9,7 @@ import About from './components/About/About';
 import Admin from './components/Admin/Admin';
 import Girls from './components/Girls';
 import Boys from './components/Boys';
+import Logout from './components/Logout/Logout';
 
 
 
@@ -21,6 +22,7 @@ export default (
         <Route path= '/Checkout' exact component={CheckOut}/>
         <Route path= '/About' exact component={About}/>
         <Route path= '/Admin' exact component={Admin}/>
+        <Route path= 'Logout' exact component={Logout}/>
         <Route path= 'Girls' exact component={Girls}/>
         <Route path= 'Boys' exact component={Boys}/>
     </Switch>

@@ -84,7 +84,7 @@ module.exports = {
     getSession: (req, res) => {
         res.status(200).json(req.session)
     },
-    signout:(res, res) => {
+    signOut:(res, res) => {
         req.session.destroy();
         res.status(200).send(req.session)
     }

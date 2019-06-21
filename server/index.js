@@ -26,12 +26,29 @@ app.use(session({
 }))
 app.use(checkSession);
 
+//Endpoints
+app.get('/api/products', productsController.getAll)
+app.post('/api/products', productsController.create)
+app.put('/api/products/:name', productsController.update)
+app.delete('/api/products/name', productsController.delete)
+
+// Cart Endpoints
+app.post('/api/cart/:id',productsController.addCart)
+app.get('/api/cart', productsController.getCart)
+
+//Login Endpoints
+app.post('/api/login', authController.loginUser)
+app.post('/api/register', authController.register)
+app.post('/api/adminLogin', authController.loginAdmin)
+app.get('/api/getSession', authController.getSession)
+app.delete('/api/signOut',authController.signOut)
+
 //database connection
  massive(process.env.CONNECTION_STRING).then( db =>{
      app.set('db',db);
      console.log('Database Connected')
  })
- 
+
  
  //Port
 app.listen(5000, () => console.log('Listening on Port 5000'))

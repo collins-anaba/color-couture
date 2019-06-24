@@ -31,9 +31,9 @@ export default class NavBar extends Component {
  render(){
      return (
         <div className='logo'>
-         <nav>
+         <nav className='nav'>
              <header>
-             <Link to='/'><img className='logo' src={logo} alt='logo'/></Link>
+             <Link to='/'><img className='logo-image' src={logo} alt='logo'/></Link>
              </header>
              <div className='menu-button' onClick={()=> this.handleClick()}>
                  <h5>MENU</h5>

@@ -1,3 +1,3 @@
-SELECT users.username, users.email, users.PASSWORD
+SELECT users.username, users.email, users.password
 FROM users
-INNER JOIN admin ON users.users_id = admins.users_id;
+INNER JOIN admin ON users.users_id = admin.users_id;

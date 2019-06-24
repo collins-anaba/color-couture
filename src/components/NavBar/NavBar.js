@@ -1,6 +1,7 @@
 import React, { Component} from "react";
 import logo from "../../images/logo.png";
 import { Link } from 'react-router-dom';
+import '../NavBar/NavBar.scss';
 import Axios from "axios";
 
 export default class NavBar extends Component {

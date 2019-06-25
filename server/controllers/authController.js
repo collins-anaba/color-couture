@@ -7,8 +7,8 @@ module.exports = {
         console.log(req.body)
         //check to make sure username is not taken
         const db = req.app.get('db')
-        db.verifyUser([username]).then(users => {
-            if(users.length > 0) {
+        db.verifyUser([username]).then(usersList => {
+            if(usersList.length > 0) {
                 res.status(403).json({
                     error:"Username Already Taken"
                 })

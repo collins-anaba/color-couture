@@ -1,10 +1,11 @@
-import React, {Component} from 'react'
-import axios from 'axios'
+import React, {Component} from 'react';
+import axios from 'axios';
+import '../New Customer/NewCustomer.scss';
 import { Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { updateUser } from '../../redux/reducer';
 
-export default class NewCustomer extends Component {
+ class NewCustomer extends Component {
     constructor(){
         super()
         this.state = {
@@ -27,7 +28,7 @@ export default class NewCustomer extends Component {
     }
 
     handleClick = () => {
-        axios.post('/api/register', {
+        axios.post('/api/NewCustomer', {
             username: this.state.username,
             password: this.state.password,
             email: this.state.email
@@ -50,7 +51,7 @@ export default class NewCustomer extends Component {
             return <Redirect to='/'/>
         }
         return (
-            <div>
+            <div className='NewCustomer-page'>
                 <input onChange={this.handleUsername} type='username' placeholder = 'Username'/>
                 <br/>
                 <input onChange={this.handlePassword} type='password' placeholder='Password'/>
@@ -67,4 +68,4 @@ const mapStateProps = state => {
         user: state.user
     }
 }
-export default connect(mapStateProps, {updateUser})(Register)
+export default connect(mapStateProps, {updateUser})(NewCustomer)

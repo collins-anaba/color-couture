@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { Route, Switch } from 'react-router-dom';
 import Home from "./components/Home/Home";
 import Login from './components/Login/Login';
@@ -7,16 +7,14 @@ import Cart from './components/Cart/Cart';
 import CheckOutStripe from './components/CheckoutStripe/CheckOutStripe';
 import About from './components/About/About';
 import Admin from './components/Admin/Admin';
-import Girls from './components/Girls';
-import Boys from './components/Boys';
 import Logout from './components/Logout/Logout';
 import NavBar from './components/NavBar/NavBar';
+import NewCustomer from './components/New Customer/NewCustomer';
 
 
 
 export default (
     <Switch>
-        <Route path="/" exact component={Home}/>
         <Route path='/Login'  exact component={Login}/>
         <Route path= '/Help' exact component={Help}/>
         <Route path= '/Cart' exact component={Cart}/>
@@ -24,8 +22,9 @@ export default (
         <Route path= '/About' exact component={About}/>
         <Route path= '/Admin' exact component={Admin}/>
         <Route path= 'Logout' exact component={Logout}/>
-        <Route path= 'Girls' exact component={Girls}/>
-        <Route path= 'Boys' exact component={Boys}/>
         <Route path= '/NavBar' exact component={NavBar}/>
+        <Route path= '/NewCustomer' exact component={NewCustomer}/>
+        <Route exact path="/"  component={Home}/>
+
     </Switch>
 )

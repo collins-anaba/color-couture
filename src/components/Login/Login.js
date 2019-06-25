@@ -59,7 +59,7 @@ export default class Login extends Component {
                 />
                 <br/>
                 <button onClick={this.handleClick} onKeyPress={this.handleEnter}>Log In</button>
-                <h4><Link className='Register-Button' to='register'>New Customers Create Customers</Link></h4>
+                <h4><Link className='Register-Button' to='NewCustomer'>New Customers Create Customers</Link></h4>
             </div>
         )
     }

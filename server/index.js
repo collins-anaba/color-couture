@@ -32,7 +32,7 @@ app.get('/api/cart', productsController.getCart)
 
 //Login Endpoints
 app.post('/api/login', authController.loginUser)
-app.post('/api/register', authController.register)
+app.post('/api/NewCustomer', authController.register)
 app.post('/api/adminLogin', authController.loginAdmin)
 app.get('/api/getSession', authController.getSession)
 app.delete('/api/signOut',authController.signOut)
@@ -46,7 +46,7 @@ app.delete('/api/signOut',authController.signOut)
  //stripe
 const cors = require('cors');
 app.use(cors());
-const configureRoutes = require('../src/routes')
+const configureRoutes = require('./Routes/paymentIndex')
 
 //AWS
 const AWS = require('aws-sdk');
@@ -57,7 +57,13 @@ const filetype = require('file-type');
 
 //AWS config
 
+AWS.config.update({
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+});
+
 const s3 = new AWS.S3();
+
 const uploadFile = (buffer, name, type) => {
     const params = {
         ACL: 'public-read',
@@ -68,6 +74,9 @@ const uploadFile = (buffer, name, type) => {
     };
     return s3.upload(params).promise();
 };
+
+// configure AWS to work with promises
+AWS.config.setPromisesDependency(bluebird);
 
 //POST route
 app.post('/api/upload', (request,response)=> {

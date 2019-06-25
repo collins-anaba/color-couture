@@ -1,0 +1,32 @@
+%flex-basic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+$card-background: #F66300;
+
+.NewCustomer-page{
+    @extend %flex-basic;
+    padding: 20px;
+    margin: 100px auto 300px auto;
+    background:$card-background;
+    flex-direction: column;
+    width: 600px;
+    height: 400px;
+    box-shadow: 7px -1px 14px 0px rgba(0,0,0,0.54);
+}
+
+// responsiveness
+@media (max-width: 750px) { 
+    .register-page{
+        padding: 20px;
+        margin: 100px auto 300px auto;
+        background: $card-background;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 400px;
+    }
+}

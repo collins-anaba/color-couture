@@ -1,4 +1,5 @@
 import React, { Component} from 'react';
+import '../Home/Home.scss';
 import axios from 'axios';
 
 export default class Home extends Component {
@@ -44,7 +45,15 @@ export default class Home extends Component {
         return (
             <div>
                 <div className="Item_List">
-                    {itemList}
+                {/* <img src="https://color-couture.s3.us-east-2.amazonaws.com/couture-butterfly.png" alt='butterfly' />
+                <img src="https://color-couture.s3.us-east-2.amazonaws.com/couture-cheerleader.png" alt='cheerleader' />
+                <img src="https://color-couture.s3.us-east-2.amazonaws.com/couture-flower.png" alt='flower' />
+                <img src="https://color-couture.s3.us-east-2.amazonaws.com/couture-kitten.png" alt='kitten' />
+                <img src="https://color-couture.s3.us-east-2.amazonaws.com/couture-numbers.png" alt='numbers' />
+                <img src="https://color-couture.s3.us-east-2.amazonaws.com/couture-car.png" alt='car' />
+                <img src="https://color-couture.s3.us-east-2.amazonaws.com/couture-robot.png" alt='robot' />
+                <img src="https://color-couture.s3.us-east-2.amazonaws.com/couture-sports.png" alt='sports' /> */}
+                {itemList}
                 </div>
             </div >
         );

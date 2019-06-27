@@ -13,9 +13,10 @@ export default class Cart extends Component {
         }
     }
 
-    componentDidCatch() {
+    componentDidMount() {
         axios.get('/api/cart').then(response => {
             console.log(response)
+            console.log('hit')
             this.setState({
                 cart: [...this.state.cart, response.data.cart],
                 total: response.data.total
@@ -23,6 +24,7 @@ export default class Cart extends Component {
         })
     }
 render(){
+    console.log(this.state.cart)
     let userCart; 
     if (this.state.cart[0]){
         userCart = this.state.cart[0].map(cart => {

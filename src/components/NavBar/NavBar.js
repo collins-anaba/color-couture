@@ -43,15 +43,15 @@ export default class NavBar extends Component {
             </div>
              <ul className='ul-1'>
                  <Link to='/Login'>Login</Link>
-                 <Link to='Your Bag'>Your Bag</Link>
-                 <Link to='Help'>Help</Link>
-                 <Link to='About'>About</Link>
+                 <Link to='/Cart'>Your Bag</Link>
+                 <Link to='/Help'>Help</Link>
+                 <Link to='/About'>About</Link>
                  <Link to='/Logout' onClick={()=> this.handleLogOut()}>Logout</Link>
              </ul>
              <div className={'drop-down' + this.state.menuStatus}>
                  <ul className='drop-down-list'>
                  <Link to='/Login'>Login</Link>
-                 <Link to='Your Bag'>Your Bag</Link>
+                 <Link to='/Cart'>Your Bag</Link>
                  <Link to='Help'>Help</Link>
                  <Link to='About'>About</Link>
                  <Link to='/Logout' onClick={()=> this.handleLogOut()}>Logout</Link>

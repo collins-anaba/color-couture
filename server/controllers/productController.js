@@ -1,26 +1,22 @@
 module.exports = {
 
-    getAll: async (req, res)=> {
+    getAll:  (req, res)=> {
         const dbInstance = req.app.get('db');
-
-        let products = await dbInstance.readProducts()
-            .catch(error => {
-                res.status(500).send({ errorMessage: 'error'});
-                console.log(error)
-            });
-            res.status(200).send(products)
+        dbInstance.getProducts()
+        .then(response => {
+            res.status(200).json(response)
+        })
+        .catch(error => {
+            console.log(error);
+            res.status(500).send(error)
+       });
+            
     },
     create: (req, res) => {
         const dbInstance = req.app.get('db');
         console.log(req.body)
-        dbInstance.createProduct([
-            req.body.name,
-            req.body.style,
-            req.body.price,
-            req.body.size,
-            req.body.description,
-            req.body.image
-        ])
+        const {name, style, price, size, description, image} = req.body
+        dbInstance.createProduct(name, style,price,size,description,image)
         .then(() => res.sendStatus(200))
         .catch(error => {
             res.status(500).send({ errorMessage: 'error 2'});

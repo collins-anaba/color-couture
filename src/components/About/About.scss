@@ -1,0 +1,11 @@
+%flex-basic {
+    display: center;
+    justify-content: center;
+}
+
+.About-us{
+    @extend %flex-basic;
+    flex-direction: column;
+    margin-top: 20vh;
+    padding-left: 30px;
+}

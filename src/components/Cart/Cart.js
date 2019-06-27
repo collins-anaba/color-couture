@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import axios from 'axios';
-import StripeBtn from '../CheckoutStripe/CheckOutStripe';
+import '../Cart/Cart.scss';
+import CheckOutStripe from '../CheckoutStripe/CheckOutStripe';
 
 
 export default class Cart extends Component {
@@ -37,7 +38,7 @@ return (
     <div className='Cart_list'>
         <h1>Cart</h1>
         <h2>Total: $ {this.state.total}</h2>
-        <StripeBtn amount={this.state.total}/>
+        <CheckOutStripe amount={this.state.total}/>
         <br/>
         <div className='Cart_list_2'>
             {userCart}

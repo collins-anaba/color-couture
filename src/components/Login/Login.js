@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link, Redirect } from 'react-router-dom';
+import '../Login/Login.scss';
 import axios from 'axios';
 
 export default class Login extends Component {
@@ -9,7 +10,8 @@ export default class Login extends Component {
             username: '',
             password: '',
             admin: false,
-            redirect: false
+            redirect: false,
+            user: {}
         }
     }
 
@@ -20,14 +22,12 @@ export default class Login extends Component {
         this.setState({password: e.target.value})
     }
     handleClick = (e) => {
+        console.log(this.state.username)
         const { username, password} = this.state;
-        axios.post('api/adminLogin', {username,password}).then(res => {
-            this.setState({admin: true})
-        }).catch( e => {
-            axios.post('/api/login', {username,password}).then(res => {
-                this.setState({redirect: true})
-            })
+        axios.post('/api/login', {username,password}).then(res => {
+            this.setState({user:res.data})
         })
+        
     }
     handleEnter = (e) => {
         if(e.key === 'Enter'){
@@ -35,14 +35,14 @@ export default class Login extends Component {
         }
     }
     render(){
-        if (this.state.admin === true) {
-            return <Redirect admin={this.state.admin} to='/productUpload'/>
+        if (this.state.user.admin === true) {
+            return <Redirect admin={this.state.user.admin} to='/Admin'/>
         }
-        else if (this.state.redirect === true){
+        else if (this.state.user.admin === false){
             return <Redirect to= '/'/>
         }
         return (
-            <div>
+            <div className='login-page'>
                 <h1>Login</h1>
                 <br/>
                 <input
@@ -58,7 +58,7 @@ export default class Login extends Component {
                 onKeyPress={this.handleEnter}
                 />
                 <br/>
-                <button onClick={this.handleClick} onKeyPress={this.handleEnter}>Log In</button>
+                <button onClick= { this.handleClick} onKeyPress={this.handleEnter}>Log In</button>
                 <h4><Link className='Register-Button' to='NewCustomer'>New Customers Create Customers</Link></h4>
             </div>
         )

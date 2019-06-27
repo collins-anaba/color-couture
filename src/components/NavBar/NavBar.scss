@@ -1,96 +1,43 @@
 ul,
-.drop-down-closed {
+.drop-down-list {
     display: none;
 }
 
-.logo{
-    padding-bottom: 5vh;
-}
-.menu-button{
-    display: none;
-    background: #F66300;
-    border-radius: 5px;
-    cursor: pointer;
-    
-}
-.hamburger-menu{
-    height: 30px;
-    width: 30px;
-    color: #F66300;
-}
 .logo-image{
-    height: 15vh;
-    width: 15vw;
-    padding-top: 10vh;
-}
-.nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    position: fixed;
-    z-index:2;
-    width: 100vw;
-    height: 8vh;
-    margin: 10px;
-    
+    padding-top: 20px;
 }
 
-@media (max-width: 1000px) {
-    .menu-button {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width:40px;
-        height: 30px;
-        padding-left: 10px;
-        font-size: 20px;
-        margin: 10px;
-    }
-    .drop-down-open{
-        width: 100vw;
-        position: absolute;
-        top: 8vh;
-        left: 0px;
-        display: flex;
-        justify-content: center;
-        animation: openMenu 1s;
-    }
-    .drop-down-closed{
-        width: 100vw;
-        height: 0vh;
-        top: 9vh;
-        left: 0px;
-        animation: closeMenu 1s;
-    }
-    .drop-down-list{
-        width: 80vw;
-        display: flex;
-        padding-left: 0px;
-        justify-content: space-between;
-    }
-    a{
-        color: #F66300;
-    }
+.Hamburger-Image {
+    height: 50px;
+    width:50px;
+    display: flex;
+    justify-content: space-around;
+    padding-left: 300px;
+    margin-top: -10vh;
+    display:none;
 }
-@keyframes openMenu {
-    from {
-        transform: translateY(1-vh)
-    }
-    to {
-        transform: translateY(0vh);
-    }
+.drop-down-open{
+display:flex;
+justify-content: center;
+justify-content: space-evenly;
+animation: openMenu 1s;
 }
-@media (min-width: 1000px) {
-    ul {
-        display: flex;
-        list-style-type: none;
-        align-items: center;
-        justify-content: space-between;
-        height: 100;
-        width: 40vw;
-        font-weight: 300;
-    }
-    .drop-down-list {
-        display: none;
-    }
+
+.drop-down-closed{
+    display:flex;
+justify-content: center;
+justify-content: space-evenly;
+    animation: closeMenu 1s;
 }
+
+
+ .ul-1{
+         display: flex;
+         align-items: center;
+         justify-content: space-evenly;
+         padding-left: 300px;
+         padding-bottom: 20px;
+ }
+
+
+ 

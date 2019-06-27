@@ -1,0 +1,25 @@
+
+
+%flex-basic {
+    display: flex;
+    justify-content: left;
+}
+
+.help-page{
+    @extend %flex-basic;
+    flex-direction: column;
+    margin-top: 20vh;
+    padding-left: 30px;
+    font-family: 'Luckiest Guy', cursive;
+    color: white;
+    font-size: 30px;
+    text-shadow: 2px 2px #F66300;
+
+    
+}
+
+.size-chart {
+    width: 250px;
+    height: 250px;
+    padding-right: 10px;
+}

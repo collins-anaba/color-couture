@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
-
+import '../About/About.scss';
 export default class About extends Component {
 
     render(){

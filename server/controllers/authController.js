@@ -28,6 +28,7 @@ module.exports = {
     },
     loginUser: (req, res) => {
         //get username and password of req.body
+        console.log(req.body)
         const { username, password } = req.body
         //get the database
         const db = req.app.get('db')
@@ -39,6 +40,7 @@ module.exports = {
                     if(doesMatch) {
                         req.session.user.username = user[0].username;
                         req.session.user.email =user[0].email;
+                        req.session.user.admin =user[0].admin;
                         res.status(200).json(req.session.user)
                     } else {
                         res.status(403).json ({
@@ -55,6 +57,7 @@ module.exports = {
     },
     loginAdmin: (req, res) => {
         //get username and password of req.body
+        console.log(req.body)
         const { username, password} = req.body
         const db = req.app.get('db')
         db.admin(username).then(user => {

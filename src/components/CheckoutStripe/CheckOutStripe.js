@@ -35,4 +35,4 @@ return (
 )
 };
 
-export default StripeCheckout;
+export default stripeBtn;

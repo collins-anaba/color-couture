@@ -8,18 +8,18 @@ export default class NavBar extends Component {
  constructor(){
      super();
      this.state = {
-            navMenu: 'closed'
+            menuStatus: 'closed'
          }
     }
 
     handleClick = () => {
-        if(this.navMenu === 'open'){
+        if(this.menuStatus === 'open'){
             this.setState({
-                navMenu: 'closed'
+                menuStatus: 'closed'
             })
         } else {
             this.setState({
-                navMenu: 'open'
+                menuStatus: 'open'
             })
         }
     }
@@ -36,23 +36,26 @@ export default class NavBar extends Component {
              <Link to='/'><img className='logo-image' src={logo} alt='logo'/></Link>
              </header>
              <div className='menu-button' onClick={()=> this.handleClick()}>
-                 <h5>MENU</h5>
-                 <img className='hamburger-menu' 
+             <style> @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap');</style>
+                 <img className='Hamburger-Image' 
                  src="https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-512.png"
                  alt='menu-button'/> 
             </div>
-             <ul>
+             <ul className='ul-1'>
                  <Link to='/Login'>Login</Link>
                  <Link to='Your Bag'>Your Bag</Link>
                  <Link to='Help'>Help</Link>
                  <Link to='About'>About</Link>
+                 <Link to='/Logout' onClick={()=> this.handleLogOut()}>Logout</Link>
              </ul>
-             <div className={'drop-down' + this.state.navMenu}>
+             <div className={'drop-down' + this.state.menuStatus}>
                  <ul className='drop-down-list'>
                  <Link to='/Login'>Login</Link>
                  <Link to='Your Bag'>Your Bag</Link>
                  <Link to='Help'>Help</Link>
                  <Link to='About'>About</Link>
+                 <Link to='/Logout' onClick={()=> this.handleLogOut()}>Logout</Link>
+
                  </ul>
              </div>
          </nav>

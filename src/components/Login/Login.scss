@@ -1,0 +1,35 @@
+%flex-basic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-page{
+    @extend %flex-basic;
+    padding: 20px;
+    margin: 100px auto 300px auto;
+    background: #F66300;
+    flex-direction: column;
+    width: 600px;
+    height: 400px;
+    box-shadow: 7px -1px 14px 0px rgba(0,0,0,0.54);
+}
+
+.Register-Button {
+color: black;
+}
+
+//responsiveness 
+@media (max-width: 750px) { 
+    .login-page{
+        padding: 20px;
+        margin: 100px auto 300px auto;
+        background: rgb(236, 236, 236);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 200px;
+        height: 400px;
+    }
+}

@@ -9,8 +9,7 @@ module.exports = {
         .catch(error => {
             console.log(error);
             res.status(500).send(error)
-       });
-            
+       });     
     },
     create: (req, res) => {
         const dbInstance = req.app.get('db');

@@ -41,7 +41,7 @@ export default class Home extends Component {
                 <img className="product" src={product.image} alt="product" />
                 <h3>{product.name}</h3>
                 <h4> $ {product.price}</h4>
-                <button className="addToCart" onClick={() => this.handleClick(product.id)}> Add To Cart </button>
+                <button className="addToCart" onClick={() => this.handleClick(product.product_id)}> Add To Cart </button>
             </div>
         })
         return (

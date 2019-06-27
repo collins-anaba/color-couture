@@ -41,6 +41,7 @@ module.exports = {
                         req.session.user.username = user[0].username;
                         req.session.user.email =user[0].email;
                         req.session.user.admin =user[0].admin;
+                        console.log(req.session.user)
                         res.status(200).json(req.session.user)
                     } else {
                         res.status(403).json ({

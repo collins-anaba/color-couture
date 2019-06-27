@@ -1,1 +1,3 @@
-SELECT * FROM products ORDER BY id DESC
+SELECT * FROM products 
+
+ORDER BY product_id DESC

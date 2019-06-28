@@ -116,7 +116,8 @@ class Admin extends Component {
 render () {
     return (
         <div className='AdminPage'>
-                <h1> Admin Form </h1>
+<style>@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap');</style>                
+            <h1> Admin Form </h1>
                 <br/>
                 <h2>Add New Product</h2>
             <form onSubmit={this.submitFile}>

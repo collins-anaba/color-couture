@@ -52,7 +52,7 @@ export default class NavBar extends Component {
                  <ul className='drop-down-list'>
                  <Link to='/Login'>Login</Link>
                  <Link to='/Cart'>Your Bag</Link>
-                 <Link to='Help'>Help</Link>
+                 <Link to='/Help'>Help</Link>
                  <Link to='About'>About</Link>
                  <Link to='/Logout' onClick={()=> this.handleLogOut()}>Logout</Link>
 

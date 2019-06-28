@@ -13,7 +13,8 @@ export default class NavBar extends Component {
     }
 
     handleClick = () => {
-        if(this.menuStatus === 'open'){
+        console.log(this.state.menuStatus)
+        if(this.state.menuStatus === 'open'){
             this.setState({
                 menuStatus: 'closed'
             })
@@ -48,7 +49,7 @@ export default class NavBar extends Component {
                  <Link to='/About'>About</Link>
                  <Link to='/Logout' onClick={()=> this.handleLogOut()}>Logout</Link>
              </ul>
-             <div className={'drop-down' + this.state.menuStatus}>
+             <div className={'drop-down-' + this.state.menuStatus}>
                  <ul className='drop-down-list'>
                  <Link to='/Login'>Login</Link>
                  <Link to='/Cart'>Your Bag</Link>

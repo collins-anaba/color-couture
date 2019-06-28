@@ -21,7 +21,7 @@ export default (
         <Route path= '/CheckoutStripe' exact component={CheckOutStripe}/>
         <Route path= '/About' exact component={About}/>
         <Route path= '/Admin' exact component={Admin}/>
-        <Route path= 'Logout' exact component={Logout}/>
+        <Route path= '/Logout' exact component={Logout}/>
         <Route path= '/NavBar' exact component={NavBar}/>
         <Route path= '/NewCustomer' exact component={NewCustomer}/>
         <Route exact path="/"  component={Home}/>

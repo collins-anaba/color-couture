@@ -25,8 +25,9 @@ return (
         billingAddress
         description='Thank you for your business.'
         // image src={logo}
-        name='Color Couture'
         locale='auto'
+        name='Color Couture'
+        label='Checkout'
         stripeKey={publishableKey}
         token={onToken}
         zipCode

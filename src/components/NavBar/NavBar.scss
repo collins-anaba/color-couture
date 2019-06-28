@@ -1,6 +1,11 @@
 ul,
 .drop-down-list {
-    display: none;
+    // display: none;
+}
+
+.nav{
+    font-family: 'Luckiest Guy', cursive;
+    padding-bottom: 10px;
 }
 
 .logo-image{
@@ -14,10 +19,13 @@ ul,
     justify-content: space-around;
     padding-left: 300px;
     margin-top: -10vh;
-    display:none;
+    // display:none;
 }
 .drop-down-open{
 display:flex;
+max-height: 25px;
+transition: 0.25s;
+overflow: hidden;
 justify-content: center;
 justify-content: space-evenly;
 animation: openMenu 1s;
@@ -25,6 +33,9 @@ animation: openMenu 1s;
 
 .drop-down-closed{
     display:flex;
+    max-height: 0;
+    transition: 0.25s;
+    overflow: hidden;
 justify-content: center;
 justify-content: space-evenly;
     animation: closeMenu 1s;
@@ -38,6 +49,20 @@ justify-content: space-evenly;
          padding-left: 300px;
          padding-bottom: 20px;
  }
+@media(max-width: 469px){
+    .ul-1 {
+        display: none;
+}
+}
 
+@media(min-width: 470px){
+    .drop-down-list {
+        display: none;
+
+}
+.Hamburger-Image{
+    display: none;
+}
+}
 
  

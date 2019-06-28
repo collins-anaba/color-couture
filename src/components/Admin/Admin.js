@@ -8,7 +8,7 @@ class Admin extends Component {
     constructor () {
         super ()
         this.state = {
-            product: null,
+            file: null,
             name: '',
             style: '',
             price: 0,
@@ -21,7 +21,7 @@ class Admin extends Component {
     submitFile = (event) => {
         event.preventDefault();
         const formData = new FormData();
-        console.log(this.state.product)
+        console.log(this.state.file)
         formData.append('file', this.state.file[0]);
         axios.post(`/api/upload`, formData, {
             headers: {
@@ -29,12 +29,12 @@ class Admin extends Component {
             }
         }).then(response => {
             axios.post('/api/products', {
+                image: response.data.location,
                 name: this.state.name,
-                price: this.state.price,
-                size:this.state.size,
                 style: this.state.style,
+                size:this.state.size,
                 description: this.state.description,
-                image: response.data.location
+                price: this.state.price
             })
         }).catch(error =>{
             console.log(error)
@@ -68,20 +68,13 @@ class Admin extends Component {
     deleteFile = (event) => {
         event.preventDefault()
         axios.delete(`/api/products/${this.state.name}`,{
-            price: this.state.price,
-            size:this.state.size,
-            style: this.state.style,
-            description: this.state.description,
+
         }).then(response => {
             console.log(response)
         }).catch(error => {
             console.log(error)
         });
         console.log(this.state.name)
-        console.log(this.state.price)
-        console.log(this.state.size)
-        console.log(this.state.style)
-        console.log(this.state.description)  
     }
     deleteProduct = (e) => {
         this.setState({name: e.target.value})
@@ -94,10 +87,10 @@ class Admin extends Component {
     updateFile = (event) =>{
         event.preventDefault()
         axios.put(`/api/products/${this.state.name}`, {
-            price: this.state.price,
-            size:this.state.size,
             style: this.state.style,
+            size:this.state.size,
             description: this.state.description,
+            price: this.state.price
         }).then(response => {
             console.log(response)
         }).catch(error => {
@@ -123,8 +116,8 @@ render () {
             <form onSubmit={this.submitFile}>
                 <br/>
                 <input placeholder='image'
-                type='text'
-                label='description'
+                type='file'
+                label='image'
                 onChange={this.handleFileUpload}
                 />
                 <br/>

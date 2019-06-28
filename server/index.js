@@ -7,7 +7,25 @@ const checkSession = require('./middleware/checkSession');
 const productsController = require('./controllers/productController');
 const authController = require('./controllers/authController');
 
-//express session
+ //stripe
+ const cors = require('cors');
+ app.use(cors());
+ const configureRoutes = require('./Routes/paymentIndex')
+
+ //AWS
+const AWS = require('aws-sdk');
+const fs = require('fs');
+const multiparty = require('multiparty');
+const bluebird = require('bluebird');
+const fileType = require('file-type');
+
+ //express session
+ app.use(express.static(`${__dirname}/../build`)); 
+app.use((req, res, next) => {
+    console.log('request');
+    next();
+})
+
 app.use(express.json());
 
 app.use(session({
@@ -19,6 +37,12 @@ app.use(session({
     }
 }))
 app.use(checkSession);
+
+//database connection
+massive(process.env.CONNECTION_STRING).then( db =>{
+    app.set('db',db);
+    console.log('Database Connected')
+})
 
 //Endpoints
 app.get('/api/products', productsController.getAll)
@@ -35,25 +59,7 @@ app.post('/api/login', authController.loginUser)
 app.post('/api/NewCustomer', authController.register)
 app.post('/api/adminLogin', authController.loginAdmin)
 app.get('/api/getSession', authController.getSession)
-app.delete('/api/signOut',authController.signOut)
-
-//database connection
- massive(process.env.CONNECTION_STRING).then( db =>{
-     app.set('db',db);
-     console.log('Database Connected')
- })
-
- //stripe
-const cors = require('cors');
-app.use(cors());
-const configureRoutes = require('./Routes/paymentIndex')
-
-//AWS
-const AWS = require('aws-sdk');
-const fs = require('fs');
-const multiparty = require('multiparty');
-const bluebird = require('bluebird');
-const filetype = require('file-type');
+app.delete('/api/Logout',authController.logout)
 
 //AWS config
 
@@ -62,6 +68,10 @@ AWS.config.update({
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
 });
 
+// configure AWS to work with promises
+AWS.config.setPromisesDependency(bluebird);
+
+//s3 instance
 const s3 = new AWS.S3();
 
 const uploadFile = (buffer, name, type) => {
@@ -75,28 +85,27 @@ const uploadFile = (buffer, name, type) => {
     return s3.upload(params).promise();
 };
 
-// configure AWS to work with promises
-AWS.config.setPromisesDependency(bluebird);
-
 //POST route
-app.post('/api/upload', (request,response)=> {
+app.post('/api/upload', (request, response) => {
     const form = new multiparty.Form();
-    form.parse(request, async(error,fields,files)=>{
-        if(error) throw new Error(error)
+    form.parse(request, async (error, fields, files) => {
+        if (error) throw new Error(error);
         try {
             const path = files.file[0].path;
             const buffer = fs.readFileSync(path);
             const type = fileType(buffer);
             const timestamp = Date.now().toString();
             const fileName = `bucketFolder/${timestamp}-lg`;
+            const data = await uploadFile(buffer, fileName, type);
             return response.status(200).send(data);
-        }catch(error){
-            return response.status(400).send(error)
+        } catch (error) {
+            return response.status(400).send(error);
         }
-    })
-})
+    });
+});
 
 
+// configureRoutes(app);
 
  
  //Port

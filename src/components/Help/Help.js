@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import sizeGuide from '../../images/sizeGuide.jpg';
+// import sizeGuide from '../../images/sizeGuide.jpg';
 import '../Help/Help.scss';
 // import { Link } from 'react-router-dom';
 
@@ -18,10 +18,10 @@ export default class Help extends Component {
             Use a washable crayon to color inside the picture. 
             </p>
             <br/> 
-            <img className='size-chart'
+            {/* <img className='size-chart'
             src= {sizeGuide}
             alt='sizeGuide'
-            />
+            /> */}
             <h2>Care Instructions</h2>
             <br/>
             <p>

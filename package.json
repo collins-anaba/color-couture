@@ -21,6 +21,7 @@
     "multiparty": "^4.2.1",
     "node": "^12.4.0",
     "node-sass": "^4.12.0",
+    "nodemailer": "^6.2.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-hash-router": "^0.2.0",
@@ -34,7 +35,7 @@
     "switch": "0.0.0"
   },
   "scripts": {
-    "start-js": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

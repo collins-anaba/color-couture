@@ -1,5 +1,5 @@
 import React, { Component} from "react";
-import logo from "../../images/logo.png";
+// import logo from "../../images/logo.png";
 import { Link } from 'react-router-dom';
 import '../NavBar/NavBar.scss';
 import Axios from "axios";
@@ -34,7 +34,7 @@ export default class NavBar extends Component {
         <div className='logo'>
          <nav className='nav'>
              <header>
-             <Link to='/'><img className='logo-image' src={logo} alt='logo'/></Link>
+             {/* <Link to='/'><img className='logo-image' src={logo} alt='logo'/></Link> */}
              </header>
              <div className='menu-button' onClick={()=> this.handleClick()}>
              <style> @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap');</style>
@@ -47,6 +47,7 @@ export default class NavBar extends Component {
                  <Link to='/Cart'>Your Bag</Link>
                  <Link to='/Help'>Help</Link>
                  <Link to='/About'>About</Link>
+                 <Link to='/ContactForm'>Contact us</Link>
                  <Link to='/Logout' onClick={()=> this.handleLogOut()}>Logout</Link>
              </ul>
              <div className={'drop-down-' + this.state.menuStatus}>
@@ -55,6 +56,7 @@ export default class NavBar extends Component {
                  <Link to='/Cart'>Your Bag</Link>
                  <Link to='/Help'>Help</Link>
                  <Link to='About'>About</Link>
+                 <Link to='/ContactForm'>Contact us</Link>
                  <Link to='/Logout' onClick={()=> this.handleLogOut()}>Logout</Link>
 
                  </ul>

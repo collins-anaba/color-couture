@@ -1,21 +1,28 @@
 module.exports = {
 
-    getAll:  (req, res)=> {
+    getAll: async (req, res) => { //get all obviously
         const dbInstance = req.app.get('db');
-        dbInstance.getProducts()
-        .then(response => {
-            res.status(200).json(response)
-        })
-        .catch(error => {
-            console.log(error);
-            res.status(500).send(error)
-       });     
+
+        let products = await dbInstance.getProducts() 
+            .catch(err => {
+                res.status(500).send({ errorMessage: "Error" });
+                console.log(err)
+            });
+
+        res.status(200).send(products)
     },
     create: (req, res) => {
         const dbInstance = req.app.get('db');
         console.log(req.body)
-        const {name, style, price, size, description, image} = req.body
-        dbInstance.createProduct(name, style,price,size,description,image)
+        // const {name, style, price, size, description, image} = req.body
+        dbInstance.createProduct([
+            req.body.name, 
+            req.body.style,
+            req.body.price,
+            req.body.size,
+            req.body.description,
+            req.body.image
+        ])
         .then(() => res.sendStatus(200))
         .catch(error => {
             res.status(500).send({ errorMessage: 'error 2'});
@@ -25,11 +32,9 @@ module.exports = {
     update: (req, res) => {
         const dbInstance = req.app.get('db');
         dbInstance.updateProduct([
-            req.body.name,
-            req.body.style,
+            req.params.name,
             req.body.price,
-            req.body.size,
-            req.body.description,
+            
         ])
             .then(() => res.sendStatus(200))
             .catch(error => {
@@ -37,15 +42,15 @@ module.exports = {
                 console.log(error)
             })
     },
-    delete: ( req, res) => {
+    delete: (req, res) => {
         const dbInstance = req.app.get('db');
         console.log(req.params)
-        dbInstance.deleteProduct(req.params.name)
-        .then((response)=> res.status(200).json(response))
-        .catch(error => {
-            res.status(500).send({errorMessage: 'Error 4'})
-            console.log(error)
-        })
+        dbInstance.deleteProduct(req.params.name) 
+            .then((response) => res.status(200).json(response))
+            .catch(err => {
+                res.status(500).send({ errorMessage: "Error4" });
+                console.log(err)
+            });
     },
     addCart: (req, res) => {
         const dbInstance = req.app.get('db');
@@ -61,7 +66,7 @@ module.exports = {
             description: response[0].description,
             image: response[0].image
             })
-            req.session.user.total += response[0].price
+            req.session.user.total += +response[0].price
             res.status(200).json(req.session.user)
         })
         .catch(error => {

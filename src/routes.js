@@ -10,6 +10,8 @@ import Admin from './components/Admin/Admin';
 import Logout from './components/Logout/Logout';
 import NavBar from './components/NavBar/NavBar';
 import NewCustomer from './components/New Customer/NewCustomer';
+import Contact from './components/Contact/Contact';
+import ContactForm from './components/Contact/ContactForm';
 
 
 
@@ -24,6 +26,8 @@ export default (
         <Route path= '/Logout' exact component={Logout}/>
         <Route path= '/NavBar' exact component={NavBar}/>
         <Route path= '/NewCustomer' exact component={NewCustomer}/>
+        <Route path= '/Contact' exact component={Contact}/>
+        <Route path='/ContactForm' exact component={ContactForm} />
         <Route exact path="/"  component={Home}/>
 
     </Switch>

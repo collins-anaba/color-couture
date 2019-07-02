@@ -1,0 +1,58 @@
+%flex-basic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ 
+.h1{
+@extend %flex-basic;
+ font-family: 'Luckiest Guy', cursive;
+ font-size: 30px;
+ text-shadow: 3px 3px #F66300;
+ padding-top: 50px;
+
+ }
+.contact-form{
+    @extend %flex-basic;
+    font-family: 'Luckiest Guy', cursive;
+    text-rendering: optimizeLegibility;
+    padding: 20px;
+    font-size: 25px;
+    margin: 100px auto 300px auto;
+    text-shadow: 3px 3px #F66300;
+    color: white;
+
+}
+
+.main-contact{
+    height: 30vh;
+}
+
+form{
+    text-shadow: 3px 3px black;
+    color: white;
+}
+html{
+    height: 100%
+  }
+
+  .h3{
+    @extend %flex-basic;
+ font-family: 'Luckiest Guy', cursive;
+ font-size: 30px;
+ text-shadow: 3px 3px black;
+ padding-top: 50px;
+ color: white;  
+  }
+  .button {
+    @extend %flex-basic;
+    background-color: #F66300;
+    color: white;
+    font-size: 13px;
+    font-family: 'Luckiest Guy', cursive;
+    text-shadow: 1px 1px black;
+    padding: 10px 24px;
+    border-radius: 8px;
+// position: absolute;
+
+ }

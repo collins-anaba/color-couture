@@ -4,66 +4,159 @@ ul,
     // display: none;
 }
 
-.nav{
+ul{
     font-family: 'Luckiest Guy', cursive;
-    padding-bottom: 10px;
 }
 
-.logo-image{
-    padding-top: 20px;
-}
+.header {
+    // padding-bottom: 15vh;
+    font-family: 'Luckiest Guy', cursive;
+    color:white;
 
+}
 .Hamburger-Image {
+    display:none;
     height: 50px;
-    width:50px;
+    width: 50px;
+}
+.hamburger-container {
     display: flex;
+justify-content: flex-end;
+}
+
+nav{
+    display: flex;
+    align-items: center;
     justify-content: space-around;
-    padding-left: 300px;
-    margin-top: -10vh;
-    // display:none;
+    position: absolute;
+    width: 100vw;
+    height: 8vh;
+    z-index: 2;
 }
-.drop-down-open{
-display:flex;
-max-height: 25px;
-transition: 0.25s;
-overflow: hidden;
-justify-content: center;
-justify-content: space-evenly;
-animation: openMenu 1s;
+.ul-1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 400;
+    height: 100;
+    width: 40vw;
+    }
+    .drop-down-open{
+        display:none;
+    }
+@media (max-width: 470px){
+   .drop-down-open{
+    width: 100vw;
+    position: absolute;
+    top: 8vh;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    animation: openMenu 1s;
+   } 
+   .drop-down-closed{
+       width: 100vw;
+       height:0vh;
+       position: absolute;
+       top: 9vh;
+       left: 0px;
+       animation: closeMenu 1s;
+   }
+
+   .drop-down-list {
+    width: 80vw;
+    display: flex;
+    padding-left: 0px;
+    justify-content: space-between;
+    }
+
+    @keyframes openMenu {
+        from {
+        transform: translateY(-1vh);
+        }
+        to {
+        transform: translateY(0vh);
+        }
+    }
 }
 
-.drop-down-closed{
-    display:flex;
-    max-height: 0;
-    transition: 0.25s;
-    overflow: hidden;
-justify-content: center;
-justify-content: space-evenly;
-    animation: closeMenu 1s;
-}
-
-
- .ul-1{
-         display: flex;
-         align-items: center;
-         justify-content: space-evenly;
-         padding-left: 300px;
-         padding-bottom: 20px;
- }
-@media(max-width: 469px){
-    .ul-1 {
-        display: none;
-}
-}
-
-@media(min-width: 470px){
-    .drop-down-list {
-        display: none;
-
-}
-.Hamburger-Image{
+@media (max-width: 470px) { 
+    .ul-1{
     display: none;
-}
-}
+    
+    }
+    .Hamburger-Image{
+        display: inherit;
+    }
+    
+    .drop-down-list {
+    // display: none;
+    }
+    }
+
+    
+
+
+
+// .Hamburger-Image {
+//     height: 50px;
+//     width:50px;
+//     display: flex;
+//     justify-content: space-around;
+//     padding-left: 300px;
+//     margin-top: -10vh;
+//     // display:none;
+// }
+// .drop-down-open{
+// display:flex;
+// max-height: 25px;
+// transition: 0.25s;
+// overflow: hidden;
+// justify-content: center;
+// justify-content: space-evenly;
+// animation: openMenu 1s;
+// }
+
+// .drop-down-closed{
+//     display:flex;
+//     max-height: 0;
+//     transition: 0.25s;
+//     overflow: hidden;
+// justify-content: center;
+// justify-content: space-evenly;
+//     animation: closeMenu 1s;
+// }
+
+
+//  .ul-1{
+//          display: flex;
+//          align-items: center;
+//          justify-content: space-evenly;
+//          padding-left: 300px;
+//          padding-bottom: 20px;
+//  }
+// @media(max-width: 469px){
+//     .ul-1 {
+//         display: none;
+        
+// }
+// }
+
+// @media(min-width: 470px){
+//     .drop-down-list {
+//         display: none;
+        
+//             display: flex;
+//             align-items: center;
+//             justify-content: space-evenly;
+//             padding-left: 300px;
+//             padding-bottom: 20px;
+    
+
+// }
+// .Hamburger-Image{
+//     display: none;
+// }
+// }
 
  

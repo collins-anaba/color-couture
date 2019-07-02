@@ -24,25 +24,26 @@ export default class Cart extends Component {
         })
     }
 render(){
-    console.log(this.state.cart)
     let userCart; 
     if (this.state.cart[0]){
         userCart = this.state.cart[0].map(cart => {
             return <div className='Checkout-page'>
-                <div className='Checkout-Card'>
-                    <h3>cart</h3>
-                    <h4>Price</h4>
+             <img src={cart.image} alt="products" />
+                 <div className='Checkout-Card'>
+                    <h3>{cart.name}</h3>
+                    <h4>${cart.price}</h4>
                 </div>
             </div>
     })
 }
 return (
-    <div className='Cart_list'>
+    <div className='Cart-list'>
+    <style> @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap');</style>
         <h1>Cart</h1>
         <h2>Total: $ {this.state.total}</h2>
         <CheckOutStripe amount={this.state.total}/>
         <br/>
-        <div className='Cart_list_2'>
+        <div className='Cart-list-2'>
             {userCart}
         </div>
     </div>

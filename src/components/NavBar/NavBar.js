@@ -1,5 +1,4 @@
 import React, { Component} from "react";
-// import logo from "../../images/logo.png";
 import { Link } from 'react-router-dom';
 import '../NavBar/NavBar.scss';
 import Axios from "axios";
@@ -31,18 +30,17 @@ export default class NavBar extends Component {
     }
  render(){
      return (
-        <div className='logo'>
-         <nav className='nav'>
+        <div className='header'>
+         <nav>
              <header>
-             {/* <Link to='/'><img className='logo-image' src={logo} alt='logo'/></Link> */}
              </header>
-             <div className='menu-button' onClick={()=> this.handleClick()}>
+             <div className='hamburger-container'onClick={()=> this.handleClick()}>
              <style> @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap');</style>
                  <img className='Hamburger-Image' 
-                 src="https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-512.png"
-                 alt='menu-button'/> 
+                 src="https://cdn2.iconfinder.com/data/icons/mobile-banking-ver-3a/100/1-48-512.png"
+     alt='menu-button'/>
             </div>
-             <ul className='ul-1'>
+             <ul className= 'ul-1'>
                  <Link to='/Login'>Login</Link>
                  <Link to='/Cart'>Your Bag</Link>
                  <Link to='/Help'>Help</Link>
@@ -50,7 +48,8 @@ export default class NavBar extends Component {
                  <Link to='/ContactForm'>Contact us</Link>
                  <Link to='/Logout' onClick={()=> this.handleLogOut()}>Logout</Link>
              </ul>
-             <div className={'drop-down-' + this.state.menuStatus}>
+{this.state.menuStatus === 'open'? 
+             <div className={'drop-down-open'}>
                  <ul className='drop-down-list'>
                  <Link to='/Login'>Login</Link>
                  <Link to='/Cart'>Your Bag</Link>
@@ -58,9 +57,9 @@ export default class NavBar extends Component {
                  <Link to='About'>About</Link>
                  <Link to='/ContactForm'>Contact us</Link>
                  <Link to='/Logout' onClick={()=> this.handleLogOut()}>Logout</Link>
-
                  </ul>
-             </div>
+             </div> : null
+}
          </nav>
         </div>
      )

@@ -7,6 +7,8 @@
 img {
     border:15px solid #F66300;
     border-radius: 5px;
+    box-shadow: 2px;
+   
 }
 
 .Cart-list{
@@ -19,6 +21,42 @@ img {
     color: white;
 }
 
+.Cart-list-2 { 
+    @extend %flex-basic;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.Checkout-Page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.Checkout {
+    height: 4vh;
+    border-radius: 5px;
+}
+.Checkout-Card {
+    width:100px;
+    min-width:15px;
+    min-width: 15vw;
+    padding: 30px;
+    margin: 10px;
+    text-align: center;
+    background: #F66300;
+    border-radius: 10px;
+    box-shadow: 7px -1px 14px 0px rgba(0,0,0,0.54);
+}
 
+@media (min-width: 469px) { /* WHEN SCREEN big */
+    .Cart-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 83vh;
+        padding-left: 400px;
+        padding-right: 400px;
+    }
+  }
 
 

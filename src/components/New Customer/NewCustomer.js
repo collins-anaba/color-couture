@@ -52,6 +52,7 @@ import { updateUser } from '../../redux/reducer';
         }
         return (
             <div className='NewCustomer-page'>
+                <style> @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap');</style>
                 <input onChange={this.handleUsername} type='username' placeholder = 'Username'/>
                 <br/>
                 <input onChange={this.handlePassword} type='password' placeholder='Password'/>

@@ -10,13 +10,27 @@
     margin: 100px auto 300px auto;
     background: #F66300;
     flex-direction: column;
-    width: 600px;
-    height: 400px;
+    border-radius: 15px;
+    width: 500px;
+    height: 300px;
     box-shadow: 7px -1px 14px 0px rgba(0,0,0,0.54);
+     font-family: 'Luckiest Guy', cursive;
+     button{
+        font-family: 'Luckiest Guy', cursive;
+        font-size: 13px;
+        border-radius: 5px;
+        padding: 4px 8px;
+        color: #f66300;
+    }
 }
 
 .Register-Button {
-color: black;
+color: white;
+text-shadow: 3px 3px black;
+display: flex;
+justify-content: flex-end;
+padding: 10px 24px;
+
 }
 
 //responsiveness 
@@ -24,12 +38,12 @@ color: black;
     .login-page{
         padding: 20px;
         margin: 100px auto 300px auto;
-        background: rgb(236, 236, 236);
+        background: rgb#F66300;
         display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
         width: 200px;
-        height: 400px;
+        height: 300px;
     }
 }

@@ -47,6 +47,7 @@ export default class Home extends Component {
         return (
             <div>
                 <div className="Item_List">
+                <style> @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap');</style>
                 {itemList}
                 </div>
             </div >

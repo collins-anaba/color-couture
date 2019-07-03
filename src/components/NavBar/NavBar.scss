@@ -1,19 +1,5 @@
 
-ul,
-.drop-down-list {
-    // display: none;
-}
 
-ul{
-    font-family: 'Luckiest Guy', cursive;
-}
-
-.header {
-    // padding-bottom: 15vh;
-    font-family: 'Luckiest Guy', cursive;
-    color:white;
-
-}
 .Hamburger-Image {
     display:none;
     height: 50px;
@@ -35,11 +21,16 @@ nav{
 }
 .ul-1{
     display: flex;
-    align-items: center;
+    align-items:center;
     justify-content: space-between;
-    font-weight: 400;
-    height: 100;
-    width: 40vw;
+    width: 60vw;
+    padding-left: 20vw;
+a{
+    font-family: 'Luckiest Guy', cursive;
+color:white;
+text-shadow: 3px 3px #f66300;
+font-size: 20px;
+}
     }
     .drop-down-open{
         display:none;
@@ -68,6 +59,12 @@ nav{
     display: flex;
     padding-left: 0px;
     justify-content: space-between;
+    a{
+        font-family: 'Luckiest Guy', cursive;
+    color:white;
+    text-shadow: 3px 3px #f66300;
+    font-size: 13px;
+    }
     }
 
     @keyframes openMenu {

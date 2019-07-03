@@ -35,12 +35,12 @@ export default class NavBar extends Component {
              <header>
              </header>
              <div className='hamburger-container'onClick={()=> this.handleClick()}>
-             <style> @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap');</style>
                  <img className='Hamburger-Image' 
                  src="https://cdn2.iconfinder.com/data/icons/mobile-banking-ver-3a/100/1-48-512.png"
-     alt='menu-button'/>
+                 alt='menu-button'/>
             </div>
              <ul className= 'ul-1'>
+                 <style> @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap');</style>
                  <Link to='/Login'>Login</Link>
                  <Link to='/Cart'>Your Bag</Link>
                  <Link to='/Help'>Help</Link>

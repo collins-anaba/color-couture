@@ -42,7 +42,9 @@ export default class Login extends Component {
             return <Redirect to= '/'/>
         }
         return (
+            
             <div className='login-page'>
+            <style> @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap');</style>
                 <h1>Login</h1>
                 <br/>
                 <input
@@ -59,7 +61,7 @@ export default class Login extends Component {
                 />
                 <br/>
                 <button onClick= { this.handleClick} onKeyPress={this.handleEnter}>Log In</button>
-                <h4><Link className='Register-Button' to='NewCustomer'>New Customers Create Customers</Link></h4>
+                <h4><Link className='Register-Button' to='NewCustomer'>New Customers </Link></h4>
             </div>
         )
     }

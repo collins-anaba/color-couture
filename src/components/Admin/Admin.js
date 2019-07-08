@@ -2,13 +2,11 @@ import React, { Component} from "react";
 import axios from 'axios';
 import '../Admin/admin.scss';
 
-
-
- class Admin extends Component {
+class Admin extends Component {
     constructor () {
         super ()
         this.state = {
-            file: null,
+            product: [],
             image: '',
             name: '',
             style: '',
@@ -16,200 +14,125 @@ import '../Admin/admin.scss';
             size:'',
             description: ''
         }
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     }
 
-    submitFile = (event) => {
-        event.preventDefault();
-        const formData = new FormData();
-        console.log(this.state.file)
-        formData.append('file', this.state.file[0]);
-        axios.post(`/api/upload`, formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data'
-          }
-        }).then(response => {
-          // handle your response;
-          axios.post('/api/products', {
-            image: response.data.Location,
+    componentDidMount() {
+        axios.get(`/api/products/${this.props.match.params.id}`).then(res => {
+          console.log(res);
+          this.setState({
+            product: res.data,
+            image: res.data[0].image,
+            name: res.data[0].name,
+            style: res.data[0].style,
+            price: res.data[0].price,
+            size: res.data[0].size,
+            description: res.data[0].description
+          });
+        });
+      }
+
+      handleChange(e) {
+        this.setState({ [e.target.name]: e.target.value });
+      }
+      handleSubmit() {
+        axios
+          .put("/api/products", {
+            image: this.state.image,
             name: this.state.name,
-            price: this.state.price
+            style: this.state.style,
+            price: this.state.price,
+            description:this.state.description
           })
-        }).catch(error => {
-          // handle your error
-          console.log(error)
-        });
+          .then(res => {
+            this.setState({
+              product: res.data
+            });
+          });
       }
     
-      handleFileUpload = (event) => {
-        this.setState({ file: event.target.files }, () => {
-          console.log(this.state.file)
-        });
-      }
-      handleName = (e) => {
-        this.setState({ name: e.target.value })
-      }
-      handlePrice = (e) => {
-        this.setState({ price: e.target.value })
-      }
-    //   handleStyle = (e) => {
-    //     this.setState({ style: e.target.value })
-    //   }
-    //   handleSize = (e) => {
-    //     this.setState({ size: e.target.value })
-    //   }
-    //   handleDescription= (e) => {
-    //     this.setState({ description: e.target.value })
-    //   }
+      render() {
     
-      deleteFile = (event) => {
-        event.preventDefault()
-        axios.delete(`/api/products/${this.state.name}`, {
-          name: this.state.name,
-        }).then(response => {
-          console.log(response)
-        }).catch(error => {
-          // handle your error
-          console.log(error)
-        });
-        console.log(this.state.name)
-      }
+        return (
+          <div>
+            <button
+              className="edit-product-button"
+              onClick={() => {
+                this.setState({ showEdit: !this.state.showEdit });
+              }}
+            >
+              Edit product
+            </button>
+           
+            <div>
+            <style>@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap');</style>                
+              {this.state.showEdit === true ? (
+                <div className="AdminPage">
+                  <form
+                    className="edit-product-form"
+                    onSubmit={this.handleSubmit}
+                  >
+                    <h1 className="edit-product-header">— Edit Product —</h1>
+                    <div>
+                      <input
+                        placeholder="Product picture (link)"
+                        onChange={this.handleChange}
+                        value={this.state.image}
+                        name="image"
+                      />
+                      <input
+                        placeholder="product name"
+                        onChange={this.handleChange}
+                        value={this.state.name}
+                        name="name"
+                      />
+                      <input
+                        placeholder="style"
+                        onChange={this.handleChange}
+                        value={this.state.style}
+                        name="style"
+                      />
     
-      deleteProduct = (e) => {
-        this.setState({ name: e.target.value })
-      }
+                      <input
+                        placeholder="price"
+                        onChange={this.handleChange}
+                        value={this.state.price}
+                        name="price"
+                      />
+                      <input
+                        placeholder="description"
+                        onChange={this.handleChange}
+                        value={this.state.description}
+                        name="description"
+                      />
+                    </div>
+                    
+                    <button className="edit-product-submit-button">
+                      Save Changes
+                    </button>
+                  </form>
+                </div> 
+                ) : (
+                    <div className="entire-product-page">
+                      
+                    </div>
+                  )}
+                </div>
     
-      updateProduct = (e) => {
-        this.setState({ value: e.target.value })
-      }
-      updateFile = (event) => {
-        event.preventDefault()
-        axios.put(`/api/products/:name`, {
-          price: this.state.price,
-        //   size: this.state.size,
-        //   style: this.state.style,
-        //   description:this.state.description
-        }).then(response => {
-          console.log(response)
-        }).catch(error => {
-          console.log(error)
-        });
-        
-      }
-    
-    
-  
-    
+              </div>
+            );
+          }
+        } 
 
-    
+        export default Admin;
+                          
+              
+      
 
-render () {
-    return (
-        <div className='AdminPage'>
-<style>@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap');</style>                
-            <h1> Admin Form </h1>
-                <br/>
-                <h2>Add New Product</h2>
-            <form onSubmit={this.submitFile}>
-                <br/>
-                <input 
-                type='file'
-                label='image'
-                onChange={this.handleFileUpload}
-                />             
-                <br/>
-                <input 
-                placeholder='name'
-                type='text'
-                label='name'
-                onChange={this.handleName}
-                />
-                <br/>
-                <input 
-                placeholder='style'
-                type='text'
-                label='style'
-                onChange={this.handleStyle}
-                />
-                <br/>
-                <input 
-                placeholder='size'
-                type='text'
-                label='size'
-                onChange={this.handleSize}
-                />
-                <br/>
-                <input 
-                placeholder='description'
-                type='text'
-                label='description'
-                onChange={this.handleDescription}
-                />
-                <br/>
-                <input
-                placeholder='price'
-                type='text'
-                label='price'
-                onChange={this.handlePrice}
-                />
-                <br/>
-                <button type='submit'>Submit</button>
-            </form>
-                 <br/>
-                 <br/>
-            <form onSubmit={this.updateFile}>
-                 <br/>
-                <input 
-                placeholder='name'
-                type='text'
-                label='name'
-                onChange={this.updateProduct}
-                />
-                <br/>
-                <input
-                placeholder='price'
-                type='text'
-                label='price'
-                onChange={this.handlePrice}
-                />
-                <br/>
-                <input 
-                placeholder='style'
-                type='text'
-                label='style'
-                onChange={this.handleStyle}
-                /> 
-                <br/>
-                <input 
-                placeholder='size'
-                type='text'
-                label='size'
-                onChange={this.handleSize}
-                /> 
-                <br/>
-                <input 
-                placeholder='description'
-                type='text'
-                label='description'
-                onChange={this.handleDescription}
-                /> 
-                <br/>
-                <button type="submit" >Update Product</button>
-            </form>
-                <br/>
-                <br/>
-            <form onSubmit={this.deleteFile}>
-                <input
-                placeholder='name'
-                type='text'
-                label='name'
-                onChange={this.deleteProduct}
-                />
-                <br/>
-                <button type="submit" >Delete Product</button>
-            </form>
-        </div>
-    )
-}
-}
 
-export default Admin;
+
+
+
+
+

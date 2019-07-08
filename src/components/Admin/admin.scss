@@ -4,6 +4,17 @@
     align-items: center
 }
 
+.edit-product-button{
+    @extend %flex-basic;
+    padding: 20px;
+    border-radius: 10px;
+    font-family: 'Luckiest Guy', cursive;
+    background: #F66300;
+    color: white;
+    flex-direction: column;
+margin-top: 70px;
+}
+
 .AdminPage {
 @extend %flex-basic;
 padding: 30px;

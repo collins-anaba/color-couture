@@ -11,6 +11,7 @@ export default class ContactForm extends Component {
         messageSent: false
     }
     handleSubmit(e) {
+        console.log(e)
         e.preventDefault();
         axios.post("/send", {
             name: this.state.name,
@@ -21,7 +22,6 @@ export default class ContactForm extends Component {
                 messageSent: true
             })
         }).catch(error => {
-            // handle your error
             console.log(error)
         });
     }

@@ -24,7 +24,6 @@ return (
         amount={props.amount * 100}
         billingAddress
         description='Thank you for your business.'
-        // image src={logo}
         locale='auto'
         name='Color Couture'
         label='Checkout'
@@ -33,7 +32,7 @@ return (
         zipCode
         style={{zIndex: '1'}}
     />
-)
+);
 };
 
 export default stripeBtn;

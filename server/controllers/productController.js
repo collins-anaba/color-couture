@@ -30,11 +30,19 @@ module.exports = {
         })
     },
     update: (req, res) => {
+        console.log(req.body)
+        console.log(req.params)
+        const {name} = req.params
+        const {price} = req.body
+        const {style} = req.body
+        const {description} = req.body
         const dbInstance = req.app.get('db');
         dbInstance.updateProduct([
-            req.params.name,
-            req.body.price,
-            
+          name,
+          price,
+          style,
+          description
+
         ])
             .then(() => res.sendStatus(200))
             .catch(error => {

@@ -117,7 +117,7 @@ app.post("/send", (req, res) => {
       }
   });
 
-  mailOptions = {
+  var mailOptions = {
       from: "clothing-Site",
       to: "detox2k2@gmail.com",
       subject: "A user has sent you an email",

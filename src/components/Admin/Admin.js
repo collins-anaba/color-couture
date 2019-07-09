@@ -9,6 +9,7 @@ class Admin extends Component {
             product: [],
             image: '',
             name: '',
+            nameParam:'',
             style: '',
             price: 0,
             size:'',
@@ -18,29 +19,30 @@ class Admin extends Component {
     this.handleChange = this.handleChange.bind(this);
     }
 
-    componentDidMount() {
-        axios.get(`/api/products/${this.props.match.params.id}`).then(res => {
-          console.log(res);
-          this.setState({
-            product: res.data,
-            image: res.data[0].image,
-            name: res.data[0].name,
-            style: res.data[0].style,
-            price: res.data[0].price,
-            size: res.data[0].size,
-            description: res.data[0].description
-          });
-        });
-      }
+    // componentDidMount() {
+    //   console.log(this.props)
+    //     axios.get(`/api/products/${this.props.match.params.id}`).then(res => {
+    //       console.log(res);
+    //       this.setState({
+    //         product: res.data,
+    //         image: res.data[0].image,
+    //         name: res.data[0].name,
+    //         style: res.data[0].style,
+    //         price: res.data[0].price,
+    //         size: res.data[0].size,
+    //         description: res.data[0].description
+    //       });
+    //     });
+    //   }
 
       handleChange(e) {
         this.setState({ [e.target.name]: e.target.value });
       }
       handleSubmit() {
         axios
-          .put("/api/products", {
-            image: this.state.image,
+          .put(`/api/products/${this.state.nameParam}`, {
             name: this.state.name,
+            image: this.state.image,
             style: this.state.style,
             price: this.state.price,
             description:this.state.description
@@ -71,12 +73,19 @@ class Admin extends Component {
                 <div className="AdminPage">
                   <form
                     className="edit-product-form"
-                    onSubmit={this.handleSubmit}
-                  >
-                    <h1 className="edit-product-header">— Edit Product —</h1>
+                    onSubmit={this.handleSubmit} >
+
+                    <h1>Input name of product</h1>
+                      <input
+                      onChange={this.handleChange}
+                      value={this.state.nameParam}
+                      name="nameParam" >
+                      </input>
+                  <br/>
+                    <h1 className="edit-product-header"> Edit Product </h1>
                     <div>
                       <input
-                        placeholder="Product picture (link)"
+                        placeholder="Image"
                         onChange={this.handleChange}
                         value={this.state.image}
                         name="image"
@@ -114,7 +123,7 @@ class Admin extends Component {
                   </form>
                 </div> 
                 ) : (
-                    <div className="entire-product-page">
+                    <div className>
                       
                     </div>
                   )}

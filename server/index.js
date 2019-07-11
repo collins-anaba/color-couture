@@ -6,6 +6,7 @@ const massive = require('massive');
 const productsController = require('./controllers/productController');
 const authController = require('./controllers/authController');
 const checkSession = require('./middleware/checkSession');
+const path = require('path');
 
  //stripe
  const cors = require('cors');
@@ -25,6 +26,10 @@ app.use((req, res, next) => {
     console.log('request');
     next();
 })
+
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 app.use(express.json());
 

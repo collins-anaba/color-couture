@@ -6,7 +6,6 @@ const massive = require('massive');
 const productsController = require('./controllers/productController');
 const authController = require('./controllers/authController');
 const checkSession = require('./middleware/checkSession');
-const path = require('path');
 
  //stripe
  const cors = require('cors');
@@ -21,17 +20,16 @@ const bluebird = require('bluebird');
 const multiparty = require('multiparty');
 
  //express session
- app.use(express.static(`${__dirname}/../build`)); 
 app.use((req, res, next) => {
     console.log('request');
     next();
 })
-
-app.get('*', (req, res)=>{
-    res.sendFile(path.join(__dirname, '../build/index.html'));
-});
-
 app.use(express.json());
+
+
+app.use( express.static( `${__dirname}/../build` ) );
+
+
 
 app.use(session({
     secret: process.env.SESSION_SECRET,

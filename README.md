@@ -9,7 +9,7 @@ The Site has product images displayed on the home page with Amazon web services,
 
 Styling was completed with CSS SASS
 
-There is a login page that has two sections. One for the customer and the other for the administrator. This was accomplished with Redux.
+There is a login page that has two sections. One for the customer and the other for the administrator. This was accomplished with Redux. Once users created their username & password, Bcrypt.JS was used to encrypt their password.
 
 The backend was set up using Node.Js. Express-session was incorporated in http requests.
 
@@ -18,6 +18,5 @@ In order to keep track of purchases and products for the application SQL was imp
 Other features for the site include Nodemailer so customers can email the admin, and stripe for checkout.
 
 
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# color-couture
+check out the site here
+Color Couture http://165.22.173.29:5000/#/
